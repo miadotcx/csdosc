@@ -1,6 +1,8 @@
+// import environment variables from environment.js and all defined object classed from object.js (Ball)
 import * as env from './environment.js';
 import * as object from './object.js';
 
+// create usable variable for the background color
 export let bg;
 
 // === LOGIC ===
@@ -11,22 +13,26 @@ let ballB = new object.Ball("Ball B", env.g);
 
 function setup() {
   
+  // actually define the background color variable
   bg = color(40, 40, 40);
 
   // create canvas
-  // createCanvas(env.canvasWidth, env.canvasHeight);
   createCanvas(env.canvasWidth, env.canvasHeight);
+
   // set framerate
   frameRate(env.framerate);
-
 }
 
 function draw() {
 
-  //draw the background
+  // draw the background with color bg
   background(bg);
+
+  // render the balls using Ball#render() from object.js
   ballA.render();
   ballB.render();
+
+  // test for wall collision
   collide(ballA);
   collide(ballB);
 
@@ -50,7 +56,7 @@ function collide(obj, target) {
     }
   }
 
-  // // object collision
+  // TODO object collision
   // if (dist(obj.x, obj.y, objB.x, objB.y) < (obj.d/2 + objB.d/2)) {
   //   return true;
   // }
