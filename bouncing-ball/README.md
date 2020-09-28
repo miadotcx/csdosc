@@ -13,4 +13,4 @@ To do:
 - Object collision
 - An environment variable that determines how many balls are created
 ---
-<a href="https://csd.mia.cx/bouncing-ball/" target="_blank">Running example</a>
+<a href="https://csd.mia.cx/bouncing-ball/">Running example</a>
