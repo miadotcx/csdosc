@@ -122,17 +122,15 @@ export class Ball {
   // render function will actuall draw the ball inside the canvas.
   // TODO needs work to randomize the colors and stroke etc.
   render() {
-    // color of the ball
+    // define how the ball appears
     fill(255,100,100);
-    // stroke width of the ball
     strokeWeight(0);
-    // color of the stroke
     stroke(255);
 
     // actually draw the ellipse with the properties of this instance of Ball
     ellipse(this.x, this.y, this.d);
 
-    // translate this ball.
+    // translate this specific ball.
     this.translate();
 
     // apply gravity if gravity is more than 0
