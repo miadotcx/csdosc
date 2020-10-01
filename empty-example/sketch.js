@@ -1,9 +1,19 @@
+import * as env from './environment.js';
+
 function setup() {
-  //plaats hier de code die maar één keer hoeft te worden uitgevoerd
-  createCanvas(800,600);
-  background(255);
+
+  createCanvas(env.canvasWidth,env.canvasHeight);
+  background(color(env.backgroundColor));
+
 }
 
 function draw() {
-  //plaats hier de code die continue herhaald moet worden.
+  
+
+
 }
+
+
+// actually assign functions to active p5 functions
+window.setup  = setup;
+window.draw   = draw;
