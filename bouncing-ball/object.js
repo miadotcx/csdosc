@@ -139,3 +139,7 @@ export class Ball {
     }
   }
 }
+
+function mousePressed() {
+  render();
+}
