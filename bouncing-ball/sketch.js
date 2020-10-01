@@ -5,20 +5,27 @@ import * as object from './object.js';
 // create usable variable for the background color
 export let bg;
 
-// === LOGIC ===
-
 // create new balls
 let ballA = new object.Ball("Ball A", env.g);
 let ballB = new object.Ball("Ball B", env.g);
 
+function mousePressed() {
+  document.location.reload();
+}
+
+window.mousePressed = mousePressed;
+
+// === LOGIC ===
+
 function setup() {
   
   // actually define the background color variable
-  bg = color(40, 40, 40);
-
+  bg = color(40, 40, 40, 120);
+  
   // create canvas
   createCanvas(env.canvasWidth, env.canvasHeight);
-
+  background(40, 40, 40);
+  
   // set framerate
   frameRate(env.framerate);
 }
@@ -36,7 +43,7 @@ function draw() {
   collide(ballA);
   collide(ballB);
 
-} 
+}
 
 // =============
 
