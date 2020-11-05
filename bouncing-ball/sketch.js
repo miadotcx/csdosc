@@ -1,74 +1,57 @@
-// import environment variables from environment.js and all defined object classed from object.js (Ball)
 import * as env from './environment.js';
 import * as object from './object.js';
 
-// create usable variable for the background color
-export let bg;
+let click = false;
 
-// create new balls
-let ballA = new object.Ball("Ball A", env.g);
-let ballB = new object.Ball("Ball B", env.g);
+let canvas = new object.Canvas();
 
-function mousePressed() {
-  document.location.reload();
+const map = []; // a non-redeclarable array of shapes (in this case just balls)
+
+// as long as i remains under the configured amount, assign array position of i to a new object.Ball.
+for (let i = map.length; i < env.amount; i++) {
+  map[i] = new object.Ball(i == 0 ? 50 : undefined); // if the ball is the first object in the array, use diameter of 50, else use undefined.
 }
 
-window.mousePressed = mousePressed;
+console.log(map);
 
-// === LOGIC ===
+// let ballA = new object.Ball(50);
+// let ballB = new object.Ball();
 
 function setup() {
-  
-  // actually define the background color variable
-  bg = color(40, 40, 40, 120);
-  
-  // create canvas
-  createCanvas(env.canvasWidth, env.canvasHeight);
-  background(40, 40, 40);
-  
-  // set framerate
-  frameRate(env.framerate);
+  canvas.create();
 }
 
 function draw() {
 
-  // draw the background with color bg
-  background(bg);
-
-  // render the balls using Ball#render() from object.js
-  ballA.render();
-  ballB.render();
-
-  // test for wall collision
-  collide(ballA);
-  collide(ballB);
-
+  canvas.fill();
+  map.forEach(obj => {
+    obj.render(canvas);
+    interact(obj);
+  });
 }
 
-// =============
-
-function collide(obj, target) {
-
-  // canvas border collision
-  if (target == undefined) { 
-    if (obj.x+obj.d/2 >= env.canvasWidth-1 || obj.x-obj.d/2 <= 1) {
-      console.log(obj.name + " collided with a wall on the x-axis.");
-      obj.vX = -1 * (env.b * obj.vX);
-      console.log(obj.vX);
-    }
-    if (obj.y+obj.d/2 >= env.canvasHeight-1 || obj.y-obj.d/2 <= 1) {
-      console.log(obj.name + " collided with a wall on the y-axis.");
-      obj.vY = -1 * (env.b * obj.vY);
-      console.log(obj.vY);
+function interact(obj) {
+  let oldX = obj.x;
+  let oldY = obj.y;
+  if (dist(obj.x, obj.y, mouseX, mouseY) < obj.d / 2) {
+    if (click) {
+      obj.x = mouseX;
+      obj.y = mouseY;
+      obj.vX = mouseX - pmouseX;
+      obj.vY = mouseY - pmouseY;
+      // obj.g = 0;
+    } else {
+      obj.g = env.g / env.frameRate;
     }
   }
-
-  // TODO object collision
-  // if (dist(obj.x, obj.y, objB.x, objB.y) < (obj.d/2 + objB.d/2)) {
-  //   return true;
-  // }
-  // return false;
 }
 
-window.draw = draw;
+function mousePressed() { click = true; }
+
+function mouseReleased() { click = false; }
+
+// actually assign functions to active p5 functions
 window.setup = setup;
+window.draw = draw;
+window.mousePressed = mousePressed;
+window.mouseReleased = mouseReleased;

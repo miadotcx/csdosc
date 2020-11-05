@@ -1,18 +1,24 @@
-// == OPTIONS ==
+/* Canvas */
+export let canvasWidth      = window.innerWidth;
+export let canvasHeight     = window.innerHeight;
 
-// Framerate
-export let framerate = 288;
+export let frameRate        = 288;
 
-// Canvas
-export let canvasWidth = window.innerWidth;
-export let canvasHeight = window.innerHeight;
-// Gravitational acceleration (0 to disable completely)
-export let g = 1.5;
+/* Physics */
+export let g = 98.1;                      // gravitational constant               (0 to disable)
+export let b = 0.7;                       // bounciness / restituion coëfficient
+export let d = 0;                         // drag / air restistance               (0 to disable)
 
-// Bounciness (restitution coëfficient) (0-1)
-export let b = 0.65;
+/* Object */
+export let amount           = 25;        // amount of initial balls
+export let size             = 100;        // average size of initial balls
+export let velocity         = 0.1;         // average velocity of initial balls
 
-// Velocity
-export let v = 200;
+export let sizeVariance     = 3;          // variance in size of initial balls
+export let veloVariance     = 10;         // variance in velocity of inital balls
 
-// =============
+/* Appearance */
+
+export let ballSaturation   = 0.9;
+export let ballLightness    = 0.75;
+export let ballOpacity      = 0.3;
