@@ -8,9 +8,9 @@ Implemented:
 - Movement
 - Wall collision
 - Gravity
+- An environment variable that determines how many balls are created
 
 To do:
 - Object collision
-- An environment variable that determines how many balls are created
 ---
 <a href="https://csd.mia.cx/bouncing-ball/">Running example</a>
