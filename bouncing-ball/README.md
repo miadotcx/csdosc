@@ -12,5 +12,6 @@ Implemented:
 
 To do:
 - Object collision
+- In-browser settings pane
 ---
 <a href="https://csd.mia.cx/bouncing-ball/">Running example</a>
