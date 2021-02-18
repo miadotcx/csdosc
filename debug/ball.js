@@ -64,6 +64,6 @@ class Ball {
      * @param {number} wallNumber number of wall counting clockwise with top = 0
      */
     hitWall(wallNumber) {
-        client.sendMessage("/ball/hit", this.index, wallNumber);
+        client.sendMessage("/ball/hit", this.i, wallNumber);
     }
 }
