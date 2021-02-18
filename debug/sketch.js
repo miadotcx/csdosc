@@ -1,7 +1,7 @@
-const ballamount = 10;
+const ballAmount = 10;
 let balls = [];
 
-const client;
+let client;
 let connect;
 
 function setup() {
@@ -9,13 +9,12 @@ function setup() {
 
   initOSC();
   
-  backgruond(200);
+  background(200);
   frameRate(30);
   
-  for (let i = 1; i < ballAmount; i++) {
+  for (let i = 0; i < ballAmount; i++) {
     balls[i] = new Ball(i);
   }
-
   windowResized();
 }
 
@@ -35,11 +34,14 @@ function mousePressed() {
 function windowResized() {
   resizeCanvas(innerWidth, innerHeight);
   for (let i = 0; i < ballAmount; i++) {
-    balls[i].resise();
+    balls[i].resize();
   }
 }
+/**
+ * initialize OSC client and the connection to the OSC server
+ */
 function initOSC(){
-  connect - new Connect();
+  connect = new Connect();
 
   connect.connectToServer(function () {
     client = new Client();
