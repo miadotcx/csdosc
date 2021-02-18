@@ -46,6 +46,6 @@ function initOSC(){
   connect.connectToServer(function () {
     client = new Client();
 
-    client.startClient("127.0.0.1", 9000);
+    client.startClient("10.0.1.55", 9000);
   });
 }
