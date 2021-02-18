@@ -23,7 +23,7 @@ class Ball {
      */
     move() {
         this.x += this.sx;
-        this.y += this.sx;
+        this.y += this.sy;
 
         if (this.x < this.r / 2) {
             this.x = this.r / 2;
