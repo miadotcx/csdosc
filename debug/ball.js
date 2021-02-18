@@ -1,4 +1,4 @@
-class ball {
+class Ball {
     constructor(i) {
         this.i = i;
         this.r = random(20, 50);
@@ -31,7 +31,7 @@ class ball {
             this.hitWall(3);
         } else if (this.x > width - this.r / 2) {
             this.x = width - this.r / 2;
-            this.sx =* -1;
+            this.sx *= -1;
             this.hitWall(1);
         } else if (this.y < this.r / 2) {
             this.y = this.r / 2;
